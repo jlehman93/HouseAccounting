@@ -1,0 +1,22 @@
+{
+  "name": "gclhouseaccounting",
+  "description": "WebApp for documenting expenses for roommates",
+  "main": "index.js",
+  "authors": [
+    "Jacob Lehman"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "^1.6.0",
+    "app-layout": "PolymerElements/app-layout#^0.10.0"
+  }
+}

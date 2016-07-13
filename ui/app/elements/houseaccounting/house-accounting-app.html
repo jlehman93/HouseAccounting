@@ -1,0 +1,37 @@
+<dom-module id="house-accounting-app">
+	<template>
+		<app-drawer-layout>
+  			<app-drawer>
+   				 <div class="menu-item">
+   				 	Receipts
+   				 </div>
+   				 <div class="menu-item">
+   				 	Owe
+   				 </div>
+   				 <div class="menu-item">
+   				 	Shopping List
+   				 </div>
+   				 <div class="menu-item">
+   				 	Persons
+   				 </div>
+ 			 </app-drawer>
+			<div>
+		    	main content
+		  	</div>
+		</app-drawer-layout>
+
+
+	</template>
+</dom-module>
+	<script>
+	(()=> {
+		'use-strict';
+
+		class HouseAccountingApp {
+			get is(){return 'house-accounting-app'}
+		}
+
+		Polymer(HouseAccountingApp);
+	})();
+	</script>
+
