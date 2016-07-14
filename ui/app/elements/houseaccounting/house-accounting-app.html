@@ -1,24 +1,30 @@
 <dom-module id="house-accounting-app">
 	<template>
-		<app-drawer-layout>
-  			<app-drawer>
-   				 <div class="menu-item">
-   				 	Receipts
-   				 </div>
-   				 <div class="menu-item">
-   				 	Owe
-   				 </div>
-   				 <div class="menu-item">
-   				 	Shopping List
-   				 </div>
-   				 <div class="menu-item">
-   				 	Persons
-   				 </div>
- 			 </app-drawer>
-			<div>
-		    	main content
-		  	</div>
-		</app-drawer-layout>
+	<style>
+	.menu-item {
+		font-family: sans-serif;
+	}
+	</style>
+
+	<paper-drawer-panel>
+		<div drawer>
+			 <div class="menu-item">
+			 	Receipts
+			 </div>
+			 <div class="menu-item">
+			 	Owe
+			 </div>
+			 <div class="menu-item">
+			 	Shopping List
+			 </div>
+			 <div class="menu-item">
+			 	Persons
+			 </div>
+		</div>
+		<div main>
+			The Goods go here
+		</div>
+	</paper-drawer-panel>
 
 
 	</template>
@@ -28,7 +34,7 @@
 		'use-strict';
 
 		class HouseAccountingApp {
-			get is(){return 'house-accounting-app'}
+			get is() { return 'house-accounting-app'; }
 		}
 
 		Polymer(HouseAccountingApp);
