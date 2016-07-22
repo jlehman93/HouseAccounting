@@ -1,26 +1,23 @@
 <dom-module id="house-accounting-app">
 	<template>
+	<style is="custom-style" include="iron-flex iron-flex-alignment iron-positioning"></style>
 	<style>
 	.menu-item {
 		font-family: sans-serif;
-	}
+	}	
 	</style>
 
 	<paper-drawer-panel>
-		<div drawer>
-			 <div class="menu-item">
-			 	Receipts
-			 </div>
-			 <div class="menu-item">
-			 	Owe
-			 </div>
-			 <div class="menu-item">
-			 	Shopping List
-			 </div>
-			 <div class="menu-item">
-			 	Persons
-			 </div>
-		</div>
+			<div drawer>
+			<paper-menu class="layout vertical center">
+				<paper-item>
+					Receipts
+				</paper-item>
+				<paper-item>
+					Persons
+				</paper-item>
+			</paper-menu>
+			</div>
 		<div main>
 			The Goods go here
 		</div>
