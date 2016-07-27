@@ -10,16 +10,25 @@
 	<paper-drawer-panel>
 			<div drawer>
 			<paper-menu class="layout vertical center">
-				<paper-item>
-					Receipts
-				</paper-item>
-				<paper-item>
-					Persons
-				</paper-item>
+				<a href="" tabindex="-1">
+					<paper-item>
+						Receipts
+					</paper-item>
+				</a>
+				<a href="/person-list.html" tabindex="-1">
+					<paper-item>
+						Persons
+					</paper-item>
+				</a>
+				<a href="" tabindex="-1">
+					<paper-item>
+						Shopping List
+					</paper-item>
+				</a>
 			</paper-menu>
 			</div>
 		<div main>
-			The Goods go here
+			<person-list></person-list>
 		</div>
 	</paper-drawer-panel>
 
