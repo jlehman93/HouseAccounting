@@ -1,4 +1,4 @@
-<dom-module id="house-accounting-app">
+<html><head></head><body><dom-module id="house-accounting-app">
 	<template>
 	<style is="custom-style" include="iron-flex iron-flex-alignment iron-positioning"></style>
 	<style>
@@ -12,43 +12,38 @@
 	}
 	</style>
 
-	<paper-drawer-panel>
-			<div drawer>
-			<paper-menu class="layout vertical center">
-				<a href="" tabindex="-1">
-					<paper-item>
-						Receipts
-					</paper-item>
-				</a>
-				<a href="/person-list.html" tabindex="-1">
-					<paper-item>
-						Persons
-					</paper-item>
-				</a>
-				<a href="" tabindex="-1">
-					<paper-item>
-						Shopping List
-					</paper-item>
-				</a>
-			</paper-menu>
-			</div>
-		<div main>
-			<person-list></person-list>
-		</div>
-	</paper-drawer-panel>
+	<app-location route="{{route}}"></app-location>
+	<app-route route="{{route}}" pattern="/:page" date="{{routeData}}"></app-route>
+	<!-- <iron-pages selected={{routeData.page}} attr-for-selected="data-route"> -->
 
+		<section data-route="">	
+			<paper-drawer-panel>
+				<div drawer>
+					<paper-menu class="layout vertical center">
+						<a data-route="receipts" href="/receipts" tabindex="-1">
+							<paper-item>
+								Receipts
+							</paper-item>
+						</a>
+						<a data-route="persons" href="/persons" tabindex="-1">
+							<paper-item>
+								Persons
+							</paper-item>
+						</a>
+						<a data-route="list" href="/list" tabindex="-1">
+							<paper-item>
+								Shopping List
+							</paper-item>
+						</a>
+					</paper-menu>
+				</div>
+				<div main>
+					<person-list data-route="persons"></person-list>
+				</div>
+			</paper-drawer-panel>
+		</section>
+	<!-- </iron-pages> -->
 
 	</template>
 </dom-module>
-	<script>
-	(()=> {
-		'use-strict';
-
-		class HouseAccountingApp {
-			get is() { return 'house-accounting-app'; }
-		}
-
-		Polymer(HouseAccountingApp);
-	})();
-	</script>
-
+	<script src="house-accounting-app.js"></script></body></html>
