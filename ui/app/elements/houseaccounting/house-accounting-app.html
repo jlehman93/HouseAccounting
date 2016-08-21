@@ -13,13 +13,14 @@
 	</style>
 
 	<app-location route="{{route}}"></app-location>
-	<app-route route="{{route}}" pattern="/:page" date="{{routeData}}"></app-route>
-	<!-- <iron-pages selected={{routeData.page}} attr-for-selected="data-route"> -->
-
-		<section data-route="">	
+	<app-route 	route="{{route}}" 
+				pattern="/:page"
+				data="{{data}}"
+				tail="{{subRoute}}">
+	</app-route>
 			<paper-drawer-panel>
 				<div drawer>
-					<paper-menu class="layout vertical center">
+					<paper-menu class="layout vertical center" attr-for-selected="data-route" selected="[[route]]">
 						<a data-route="receipts" href="/receipts" tabindex="-1">
 							<paper-item>
 								Receipts
@@ -38,12 +39,11 @@
 					</paper-menu>
 				</div>
 				<div main>
-					<person-list data-route="persons"></person-list>
+					<iron-pages attr-for-selected="data-route" selected="{{data.page}}">
+						<person-list data-route="persons"></person-list>
+					</iron-pages>
 				</div>
 			</paper-drawer-panel>
-		</section>
-	<!-- </iron-pages> -->
-
 	</template>
 </dom-module>
 	<script src="house-accounting-app.js"></script></body></html>
