@@ -11,39 +11,49 @@
 		text-decoration: inherit;
 	}
 	</style>
+		<app-location route="{{route}}"></app-location>
+		<app-route
+			route="{{route}}"
+			pattern="/:page"
+			data="{{routeData}}"
+			tail="{{subRoute}}">
+		</app-route>
 
-	<app-location route="{{route}}"></app-location>
-	<app-route 	route="{{route}}" 
-				pattern="/:page"
-				data="{{data}}"
-				tail="{{subRoute}}">
-	</app-route>
-			<paper-drawer-panel>
+	
 				<div drawer>
-					<paper-menu class="layout vertical center" attr-for-selected="data-route" selected="[[route]]">
-						<a data-route="receipts" href="/receipts" tabindex="-1">
+					<paper-menu class="layout vertical center"  selected="[[routeData.page]]">
+					<iron-selector selected="[[routeData.page]]">
+
+					<paper-tabs selected="{{routeData.page}}" attr-for-selected="page">
+						<paper-tab page="receipts">Reciepts</paper-tab>
+						<paper-tab page="persons">Person</paper-tab>
+						<paper-tab page="list">Shopping List</paper-tab>
+					</paper-tabs>	
+					
+						<a page="receipts" href="/receipts" tabindex="-1">
 							<paper-item>
 								Receipts
 							</paper-item>
 						</a>
-						<a data-route="persons" href="/persons" tabindex="-1">
+						<link page="persons" tabindex="-1">
 							<paper-item>
 								Persons
 							</paper-item>
-						</a>
-						<a data-route="list" href="/list" tabindex="-1">
+						</link>
+						<a page="list" href="/list" tabindex="-1">
 							<paper-item>
 								Shopping List
 							</paper-item>
 						</a>
 					</paper-menu>
+					</iron-selector>
 				</div>
 				<div main>
-					<iron-pages attr-for-selected="data-route" selected="{{data.page}}">
-						<person-list data-route="persons"></person-list>
+					<iron-pages selected="{{routeData.page}}" attr-for-selected="page">
+						<person-list page="persons" route="{{subroute}}"></person-list>
 					</iron-pages>
 				</div>
-			</paper-drawer-panel>
+			
 	</template>
 </dom-module>
 	<script src="house-accounting-app.js"></script></body></html>
