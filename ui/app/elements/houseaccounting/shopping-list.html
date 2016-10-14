@@ -1,0 +1,29 @@
+<dom-module id="shopping-list">
+	<style>
+		.list {
+			
+		}
+	</style>
+	<!-- <app-route
+		 route="{{route}}"
+		 pattern="/:id"
+		 data="{{routeData}}">
+	</app-route> -->
+	<template>
+		<paper-listbox>
+			<!--Will need to have a repeatble field that gets data from db -->
+			<paper-item>shoop</paper-item>
+			<paper-item>woop</paper-item>
+		</paper-listbox>
+	</template>
+</dom-module>
+<script>
+	(() => {
+		'use strict';
+
+		class ShoppingList {
+			get is() { return 'shopping-list'; }
+		}
+		Polymer(ShoppingList);
+	})();
+</script>
