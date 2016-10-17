@@ -1,4 +1,4 @@
-<html><head></head><body><dom-module id="house-accounting-app">
+<dom-module id="house-accounting-app">
 	<template>
 	<style is="custom-style" include="iron-flex iron-flex-alignment iron-positioning"></style>
 	<style>
@@ -54,13 +54,24 @@
 
 			<div main>
 				<iron-pages selected="{{routeData.page}}" attr-for-selected="page">
+					<div page="receipts"><person-list></person-list></div>
+					
 					<div page="persons"><person-list></person-list></div>
 					<div page="list"><shopping-list></shopping-list></div>
-					<div page="persons"><person-list></person-list></div>
 				</iron-pages>
 			</div>
 	</paper-drawer-panel>
-			
-	</template>
+</template>
+<script>
+	(()=> {
+		'use-strict';
+
+		class HouseAccountingApp {
+			get is() { return 'house-accounting-app'; }
+		}
+
+ 		Polymer(HouseAccountingApp);
+ 	})();
+ 	</script>
 </dom-module>
-	<script src="house-accounting-app.js"></script></body></html>
+	

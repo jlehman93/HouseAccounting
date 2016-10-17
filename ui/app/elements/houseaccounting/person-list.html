@@ -4,17 +4,18 @@
 			
 		}
 	</style>
-	<!-- <app-route
-		 route="{{route}}"
-		 pattern="/:id"
-		 data="{{routeData}}">
-	</app-route> -->
 	<template>
-		<paper-listbox>
-			<!--Will need to have a repeatble field that gets data from db -->
-			<paper-item>Jacob</paper-item>
-			<paper-item>Kyle</paper-item>
-		</paper-listbox>
+	<div class="layout vertical center">
+	<paper-input label="Name" pattern="[a-zA-Z]*" error-message="letters only!"></paper-input>
+		<paper-card>
+			<paper-listbox>
+				<!--Will need to have a repeatble field that gets data from db -->
+
+				<paper-item>Jacob</paper-item>
+				<paper-item>Kyle</paper-item>
+			</paper-listbox>
+		</paper-card>
+	</div>
 	</template>
 </dom-module>
 <script>
