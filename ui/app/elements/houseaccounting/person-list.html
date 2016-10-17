@@ -5,10 +5,15 @@
 		}
 	</style>
 	<template>
+	<style is="custom-style" include="iron-flex iron-flex-alignment iron-positioning"></style>
 	<div class="layout vertical center">
-	<paper-input label="Name" pattern="[a-zA-Z]*" error-message="letters only!"></paper-input>
+	
 		<paper-card>
-			<paper-listbox>
+		<div class="layout horizontal">
+		<paper-input label="Name" pattern="[a-zA-Z]*" error-message="letters only!"></paper-input>
+		<paper-button raised on-tap=""> Add</paper-button>
+		</div>
+			<paper-listbox id="NameList">
 				<!--Will need to have a repeatble field that gets data from db -->
 
 				<paper-item>Jacob</paper-item>
@@ -24,6 +29,14 @@
 
 		class PersonList {
 			get is() { return 'person-list'; }
+			get properties() {
+				return {
+					
+				};
+			}
+			addName() {
+
+			}
 		}
 		Polymer(PersonList);
 	})();
