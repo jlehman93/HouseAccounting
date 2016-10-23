@@ -11,55 +11,40 @@
 		text-decoration: inherit;
 	}
 	</style>
-		<app-location route="{{route}}"></app-location>
-		<app-route
-			route="{{route}}"
-			pattern="/:page"
-			data="{{routeData}}"
-			tail="{{subRoute}}">
-		</app-route>
+	<app-location route="{{route}}"></app-location>
+	<app-route
+		route="{{route}}"
+		pattern="/:page"
+		data="{{routeData}}"
+		tail="{{subRoute}}">
+	</app-route>
 
-		<paper-drawer-panel>
-				<div drawer>
-					<paper-menu class="layout vertical center"  att-for-selected="page">
-					<iron-selector selected="[[routeData.page]]" >
+	<paper-drawer-panel>
+		<div drawer>
+			<paper-menu class="layout vertical center"  att-for-selected="page">
+			<iron-selector selected="[[routeData.page]]" >
 
-					<!-- <paper-tabs selected="{{routeData.page}}" attr-for-selected="page">
-						<paper-tab page="receipts">Reciepts</paper-tab>
-						<paper-tab page="persons">Person</paper-tab>
-						<paper-tab page="list">Shopping List</paper-tab>
-					</paper-tabs>	 -->
-					
-						<a page="receipts" href="/receipts" tabindex="-1">
-							<paper-item>
-								Receipts
-							</paper-item>
-						</a>
+				<a page="receipts" href="/receipts" tabindex="-1">
+					<paper-item> Receipts </paper-item>
+				</a>
+				<a page="persons" href="/persons" tabindex="-1">
+					<paper-item> Persons </paper-item>
+				</a>
+				<a page="list" href="/list" tabindex="-1">
+					<paper-item> Shopping List </paper-item>
+				</a>
+			</iron-selector>
+			</paper-menu>				
+		</div>
 
-						<a page="persons" href="/persons" tabindex="-1">
-							<paper-item>
-								Persons
-							</paper-item>
-						</a>
-
-						<a page="list" href="/list" tabindex="-1">
-							<paper-item>
-								Shopping List
-							</paper-item>
-						</a>
-					</iron-selector>
-					</paper-menu>
-					
-				</div>
-
-			<div main>
-				<iron-pages selected="{{routeData.page}}" attr-for-selected="page">
-					<div page="receipts"><person-list></person-list></div>
-					
-					<div page="persons"><person-list></person-list></div>
-					<div page="list"><shopping-list></shopping-list></div>
-				</iron-pages>
-			</div>
+		<div main>
+			<iron-pages selected="{{routeData.page}}" attr-for-selected="page">
+				<div page="receipts"><person-list></person-list></div>
+				
+				<div page="persons"><person-list></person-list></div>
+				<div page="list"><shopping-list></shopping-list></div>
+			</iron-pages>
+		</div>
 	</paper-drawer-panel>
 </template>
 <script>

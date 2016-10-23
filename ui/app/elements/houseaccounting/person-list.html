@@ -10,14 +10,20 @@
 	
 		<paper-card>
 		<div class="layout horizontal">
-		<paper-input label="Name" pattern="[a-zA-Z]*" error-message="letters only!"></paper-input>
-		<paper-button raised on-tap=""> Add</paper-button>
+		<paper-input-container id="" >
+			<input is="iron-input" paper-input label="Name" pattern="[a-zA-Z]*" error-message="letters only!">
+			<paper-button raised on-tap="addName"> Add</paper-button>
+		</paper-input>
+		</paper-input-container>
+		
 		</div>
 			<paper-listbox id="NameList">
-				<!--Will need to have a repeatble field that gets data from db -->
-
-				<paper-item>Jacob</paper-item>
-				<paper-item>Kyle</paper-item>
+				
+				<div>
+					<template is="dom-repeat" items="{{People}}">
+						<paper-item>{{item.name}}</paper-item>
+					</template>
+				</div>
 			</paper-listbox>
 		</paper-card>
 	</div>
@@ -31,11 +37,28 @@
 			get is() { return 'person-list'; }
 			get properties() {
 				return {
-					
+					People: {
+						type: Array,
+						value: () => [{
+							name: 'Jacob'
+						}, {
+							name: 'Kyle'
+						}, {
+							name: 'Ervin'
+						}, {
+							name: 'Mateo'
+						}, {
+							name: 'Chris'
+						}, {
+							name: 'Logan'
+						}
+						]
+					}
 				};
 			}
-			addName() {
-
+			addName(e) {
+				let n = e.item;
+				this.People.push(n);
 			}
 		}
 		Polymer(PersonList);
