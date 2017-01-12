@@ -9,12 +9,28 @@
 		 pattern="/:id"
 		 data="{{routeData}}">
 	</app-route> -->
-	<template>
-		<paper-listbox>
-			<!--Will need to have a repeatble field that gets data from db -->
-			<paper-item>shoop</paper-item>
-			<paper-item>woop</paper-item>
-		</paper-listbox>
+	<style is="custom-style" include="iron-flex iron-flex-alignment iron-positioning"></style>
+	<div class="layout vertical center">
+	
+		<paper-card>
+		<paper-input-container>
+			<div class="layout horizontal">
+				<input id="personName" is="iron-input" paper-input label="Name" pattern="[a-zA-Z]*" error-message="letters only!">
+				<paper-button raised on-tap="addName"> Add</paper-button>
+			</div>
+		</paper-input>
+		</paper-input-container>
+		
+		<!-- </div> -->
+			<paper-listbox id="NameList">
+				<div>
+					<template is="dom-repeat" items="{{Groceries}}">
+						<paper-item>{{item.name}}</paper-item>
+					</template>
+				</div>
+			</paper-listbox>
+		</paper-card>
+	</div>
 	</template>
 </dom-module>
 <script>
@@ -23,6 +39,30 @@
 
 		class ShoppingList {
 			get is() { return 'shopping-list'; }
+
+			get properties() {
+				return {
+					Groceries: {
+						type: Array,
+						notify: true,
+						reflectToAttribute: true,
+						value: () => [{
+							name: 'Milk'
+						}, {
+							name: 'Eggs'
+						}, {
+							name: 'Jimmy Deans'
+						}, {
+							name: 'Mateo'
+						}, {
+							name: 'Chris'
+						}, {
+							name: 'Logan'
+						}
+						]
+					}
+				};
+			}
 		}
 		Polymer(ShoppingList);
 	})();

@@ -9,16 +9,16 @@
 	<div class="layout vertical center">
 	
 		<paper-card>
-		<div class="layout horizontal">
-		<paper-input-container id="" >
-			<input is="iron-input" paper-input label="Name" pattern="[a-zA-Z]*" error-message="letters only!">
-			<paper-button raised on-tap="addName"> Add</paper-button>
+		<paper-input-container>
+			<div class="layout horizontal">
+				<input id="personName" is="iron-input" paper-input label="Name" pattern="[a-zA-Z]*" error-message="letters only!">
+				<paper-button raised on-tap="addName"> Add</paper-button>
+			</div>
 		</paper-input>
 		</paper-input-container>
 		
-		</div>
+		<!-- </div> -->
 			<paper-listbox id="NameList">
-				
 				<div>
 					<template is="dom-repeat" items="{{People}}">
 						<paper-item>{{item.name}}</paper-item>
@@ -35,10 +35,13 @@
 
 		class PersonList {
 			get is() { return 'person-list'; }
+
 			get properties() {
 				return {
 					People: {
 						type: Array,
+						notify: true,
+						reflectToAttribute: true,
 						value: () => [{
 							name: 'Jacob'
 						}, {
@@ -56,9 +59,11 @@
 					}
 				};
 			}
-			addName(e) {
-				let n = e.item;
-				this.People.push(n);
+			addName() {
+				let n = this.$.personName.value;
+				if(!n) return;
+				this.push('People', {name: n});
+				this.$.personName.value = '';
 			}
 		}
 		Polymer(PersonList);
